@@ -9,7 +9,7 @@ const Navbar = () => {
     <li> <NavLink to={"/blog"}> Blog</NavLink> </li>
     <li> <NavLink to={"/products"}> Add Product </NavLink> </li>
   </>
-  const user = true;
+  const user = true
   return (
     <div>
       <div className="navbar bg-black lg:px-8">
