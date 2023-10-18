@@ -8,10 +8,10 @@ const Banner = () => {
             data-aos="fade-up"
             data-aos-easing="linear"
             data-aos-duration="1200">
-            <h3 className="text-xl md:text-3xl">SALE UP TP</h3>
+            <h3 className="text-xl  md:text-3xl">SALE UP TP</h3>
             <h1 className="text-7xl md:text-[200px] font-bold">70%</h1>
             <h3 className="text-xl md:text-3xl text-end">OFF</h3>
-            <button className="bg-black text-white hover:bg-base-200 font-semibold hover:text-black border-none btn btn-sm lg:btn-md lg:btn-wide">Buy Now</button>
+            <button className="bg-black hover:shadow-inner text-white hover:bg-base-200 font-semibold hover:text-black border-none btn btn-sm lg:btn-md lg:btn-wide">Buy Now</button>
             {/* <p>TRENDY OUTFITS Get Glamorous Elevate Your Style: Unveiling the Latest Trends</p> */}
           </div>
         </div>
