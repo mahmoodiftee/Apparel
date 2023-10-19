@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 const AddProduct = () => {
+  const navigate = useNavigate();
   const handleAddProduct = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -33,6 +35,7 @@ const AddProduct = () => {
             timer: 1500
           })
           e.target.reset();
+          navigate('/Home');
         }
       })
 
@@ -66,7 +69,7 @@ const AddProduct = () => {
               </div>
             </div>
             <div className='flex flex-col lg:flex-row justify-between gap-6'>
-              <div class="form-control">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text text-[16px] text-black font-medium">Product Type</span>
                 </label>

@@ -18,7 +18,7 @@ const SingleProduct = ({ product }) => {
           <h2 className="text-sm font-medium">Rating: <span className="text-[12px] font-normal"> {rating} </span></h2>
         </div>
           <Link to={`/details/${_id}`} className="card-actions pb-4 justify-center">
-            <button className="btn btn-neutral btn-sm">Details!</button>
+          <button className="btn w-5/6 btn-sm rounded-none hover:shadow-inner bg-black text-white hover:bg-base-200 hover:text-black btn-ghost">DETAILS</button>
           </Link>
       </div>
     </div>
