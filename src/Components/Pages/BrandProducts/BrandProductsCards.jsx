@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 const BrandProductsCards = ({ product }) => {
-  const { name, photo, rating, price, selectedBrand, selectedProductType } = product;
+  const { _id, name, photo, rating, price, selectedBrand, selectedProductType } = product;
   // console.log(product);
   return (
     <div>
@@ -8,15 +10,22 @@ const BrandProductsCards = ({ product }) => {
         <figure className="h-[200px] lg:h-[200px]">
           <img className="h-full object-cover" src={photo} alt="car" />
         </figure>
-        <div className="cards h-[160px]">
+        <div className="cards lg:h-[140px] h-[160px]">
           <h2 className="text-sm font-medium">Name: <span className="text-[12px] font-normal"> {name}</span>  </h2>
           <h2 className="text-sm font-medium">Brand: <span className="text-[12px] font-normal"> {selectedBrand}</span> </h2>
           <h2 className="text-sm font-medium">Product Type: <span className="text-[12px] font-normal"> {selectedProductType}</span> </h2>
           <h2 className="text-sm font-medium">Price: <span className="text-[12px] font-normal"> {price} </span></h2>
           <h2 className="text-sm font-medium">Rating: <span className="text-[12px] font-normal"> {rating} </span></h2>
         </div>
-        <div className="card-actions pb-4 justify-center">
-          <button className="btn btn-neutral btn-sm">Details!</button>
+        <div className="flex items-center pb-4 pl-2 justify-start">
+          <div className="flex flex-col items-center gap-2">
+            <Link to={`/edit/${_id}`}>
+              <button className="btn btn-neutral btn-sm">Update</button>
+            </Link>
+            <Link to={`/details/${_id}`}>
+              <button className="btn btn-neutral btn-sm">Details</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

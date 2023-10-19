@@ -17,7 +17,9 @@ body{
   flex: 1 1 auto;
   flex-direction: column;
   flex-direction: column;
-  padding: var(--padding-card, 1rem);
+  padding-left: var(--padding-card, 1rem);
+  padding-top: var(--padding-card, 1rem);
+  padding-right: var(--padding-card, 1rem);
   gap: 4px;
 }
 .cards :where(p) {
@@ -30,17 +32,34 @@ body{
   color: hsl(var(--nc) / var(--tw-text-opacity));
 }
 .card.compact .cards {
-  padding:8px;
+  padding-left:8px;
+  padding-right:8px;
+  padding-top:8px;
   font-size: 0.875rem/* 14px */;
   line-height: 10px;
 }
 .card-compact .cards {
-  padding: 8px;
+  padding-left:8px;
+  padding-right:8px;
+  padding-top:8px;
   font-size: 0.875rem/* 14px */;
   line-height: 10px;
 }
 .card-normal .cards {
-  padding: var(--padding-card, 1rem);
+  padding-left: var(--padding-card, 1rem);
+  padding-top: var(--padding-card, 1rem);
+  padding-right: var(--padding-card, 1rem);
   font-size: 8px;
   line-height: 12px;
+}
+.hero-contents {
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80rem/* 1280px */;
+  gap: 1rem/* 16px */;
+  padding-left: 1rem/* 16px */;
+  padding-right: 1rem/* 16px */;
+  padding-bottom: 1rem/* 16px */;
 }

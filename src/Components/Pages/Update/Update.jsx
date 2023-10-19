@@ -1,6 +1,10 @@
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
-const AddProduct = () => {
+const Update = () => {
+  const product = useLoaderData();
+  const {_id} = product;
+  const navigate = useNavigate();
   const handleAddProduct = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -13,31 +17,30 @@ const AddProduct = () => {
     const newProduct = { name, description, price, photo, rating, selectedBrand, selectedProductType }
     console.log(newProduct);
 
-    //send data to server 
-    fetch('http://localhost:5000/product', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(newProduct)
+    // send data to server
+  fetch(`http://localhost:5000/product/${_id}`, {
+    method: 'PUT',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(newProduct)
+  })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      if (data.modifiedCount > 0) {
+        Swal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: 'Product Successfully Updated',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        navigate('/Home');
+      }
     })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            position: 'top-center',
-            icon: 'success',
-            title: 'Product Successfully Added',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          e.target.reset();
-        }
-      })
 
-  }
-
+}
   return (
     <div>
       <div className='flex pt-4 pb-10 lg:pb-10 justify-center items-center px-6'>
@@ -49,13 +52,13 @@ const AddProduct = () => {
                 <label className="label">
                   <span className="label-text text-[16px] text-black font-medium">Name</span>
                 </label>
-                <input type="text" name='name' placeholder="Enter Product Name" className="p-2 rounded-lg bg-base-200 input-bordered w-full lg:w-[400px]  pr-16" required />
+                <input type="text" name='name' defaultValue={product.name} placeholder="Enter Product Name" className="p-2 rounded-lg bg-base-200 input-bordered w-full lg:w-[400px]  pr-16" required />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-[16px] text-black font-medium">Choose Brand</span>
                 </label>
-                <select name="brand" defaultValue="Pick One" className="select border-none text-[#9ca3af] font-medium p-2 rounded-lg bg-base-200 input-bordered w-full lg:w-[400px] pr-16">
+              <select name="brand" defaultValue={product.selectedBrand} className="select border-none text-[#9ca3af] font-medium p-2 rounded-lg bg-base-200 input-bordered w-full lg:w-[400px] pr-16">
                   <option value="Adidas">Adidas</option>
                   <option value="Chanel">Chanel</option>
                   <option value="Louis Vuitton">Louis Vuitton</option>
@@ -66,11 +69,11 @@ const AddProduct = () => {
               </div>
             </div>
             <div className='flex flex-col lg:flex-row justify-between gap-6'>
-              <div class="form-control">
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text text-[16px] text-black font-medium">Product Type</span>
                 </label>
-                <select name="productType" defaultValue="Pick One" className="select border-none text-[#9ca3af] font-medium p-2 rounded-lg bg-base-200 input-bordered w-full lg:w-[400px] pr-16">
+                <select name="productType" defaultValue={product.selectedProductType}  className="select border-none text-[#9ca3af] font-medium p-2 rounded-lg bg-base-200 input-bordered w-full lg:w-[400px] pr-16">
                   <option value="Cloth">Cloth</option>
                   <option value="Shoe">Shoe</option>
                   <option value="Bag">Bag</option>
@@ -82,7 +85,7 @@ const AddProduct = () => {
                 <label className="label">
                   <span className="label-text text-[16px] text-black font-medium">price</span>
                 </label>
-                <input type="text" name='price' placeholder="Enter Your Taste" className="p-2 rounded-lg bg-base-200 input-bordered w-full lg:w-[400px]  pr-16" required />
+                <input type="text" name='price' defaultValue={product.price} placeholder="Enter Your Taste" className="p-2 rounded-lg bg-base-200 input-bordered w-full lg:w-[400px]  pr-16" required />
               </div>
             </div>
             <div className='flex flex-col lg:flex-row justify-between gap-6'>
@@ -90,20 +93,20 @@ const AddProduct = () => {
                 <label className="label">
                   <span className="label-text text-[16px] text-black font-medium">Photo URL</span>
                 </label>
-                <input type="text" name='photo' placeholder="Enter the photo url" className="p-2 rounded-lg bg-base-200 input-bordered w-full lg:w-[400px]  pr-16" required />
+                <input type="text" name='photo' defaultValue={product.photo} placeholder="Enter the photo url" className="p-2 rounded-lg bg-base-200 input-bordered w-full lg:w-[400px]  pr-16" required />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-[16px] text-black font-medium">Rating</span>
                 </label>
-                <input type="text" name='rating' placeholder="Enter Coffee Details" className="p-2 rounded-lg bg-base-200 input-bordered w-full lg:w-[400px]  pr-16" required />
+                <input type="text" name='rating' defaultValue={product.rating} placeholder="Enter Coffee Details" className="p-2 rounded-lg bg-base-200 input-bordered w-full lg:w-[400px]  pr-16" required />
               </div>
             </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-[16px] text-black font-medium">Short Description About Product</span>
               </label>
-              <input type="text" name='description' placeholder="Describe Your Product" className="p-2 rounded-lg bg-base-200 input-bordered w-full pr-16" required />
+              <input type="text" name='description' defaultValue={product.description} placeholder="Describe Your Product" className="p-2 rounded-lg bg-base-200 input-bordered w-full pr-16" required />
             </div>
             <div className='flex justify-center items-center mt-4'>
               <input type='submit' value="Add Product" className="bg-black hover:shadow-inner text-white hover:bg-base-200 font-semibold hover:text-black border-none btn btn-sm lg:btn-md lg:btn-wide" />
@@ -115,4 +118,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default Update;

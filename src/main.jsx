@@ -10,10 +10,14 @@ import Start from './Start';
 import Home from './Components/Home/Home';
 import AddProduct from './Components/Pages/ADD PRODUCT/AddProduct';
 import BrandProducts from './Components/Pages/BrandProducts/BrandProducts';
+import ErrorPage from '../ErrorPage';
+import Detail from './Components/Pages/Details/Detail';
+import Update from './Components/Pages/Update/Update';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -35,6 +39,16 @@ const router = createBrowserRouter([
         loader: ({ params }) => {
           return fetch(`http://localhost:5000/product?selectedBrand=${params.brandName}`);
         }
+      },
+      {
+        path: "/details/:id",
+        element: <Detail></Detail>,
+        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
+      },
+      {
+        path: "/edit/:id",
+        element:<Update></Update>,
+        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
       }
 
 
