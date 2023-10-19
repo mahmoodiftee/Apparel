@@ -1,8 +1,29 @@
+import { useContext } from 'react';
 import { BiSolidCart } from 'react-icons/bi';
 import { BsFillPersonFill } from 'react-icons/bs';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const { user, SignOut, } = useContext(AuthContext)
+  if (user) {
+    console.log(user.name);
+    console.log(user.email);
+    console.log(user.photoURL);
+  }
+  const handleSignOut = () => {
+    SignOut()
+    Swal.fire({
+      icon: 'success',
+      text: 'user signed out successfully',
+    })
+    navigate('/signin')
+  }
+
+
+
   const links = <>
     <li> <NavLink to={"/Home"}> Home </NavLink> </li>
     <li> <NavLink to={"/About"}> About</NavLink> </li>
@@ -10,7 +31,6 @@ const Navbar = () => {
     <li> <NavLink to={"/AddProduct"}> Add Product </NavLink> </li>
     <li> <NavLink to={"/cart"}> My Cart </NavLink> </li>
   </>
-  const user = true
   return (
     <div>
       <div className="navbar bg-black lg:px-8">
@@ -33,8 +53,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-        {/* && user.email ? */}
-          {user ? (
+
+          {user && user.email ? (
             <div className="flex-none">
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn mr-3 btn-ghost btn-circle">
@@ -56,23 +76,18 @@ const Navbar = () => {
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
-                    <BsFillPersonFill className='text-4xl text-white'></BsFillPersonFill>
+                    <img src={user.photoURL} alt="" />
                   </div>
                 </label>
-                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                  <li>
-                    <a className="justify-between">
-                      Profile
-                      <span className="badge">New</span>
-                    </a>
-                  </li>
-                  <li><a>Settings</a></li>
-                  <li><a>Logout</a></li>
+                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-64">
+                  <li><p className="">{user.displayName}</p></li>
+                  <li><a>{user.email}</a></li>
+                  <li><a onClick={() => handleSignOut()}>Logout</a></li>
                 </ul>
               </div>
             </div>
           ) : (
-            <Link to="/login">
+            <Link to="/signin">
               <button className="btn btn-sm hover:shadow-inner text-white hover:bg-white hover:text-black btn-ghost">Login</button>
             </Link>
           )}

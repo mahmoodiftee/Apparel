@@ -109,7 +109,7 @@ const Update = () => {
               <input type="text" name='description' defaultValue={product.description} placeholder="Describe Your Product" className="p-2 rounded-lg bg-base-200 input-bordered w-full pr-16" required />
             </div>
             <div className='flex justify-center items-center mt-4'>
-              <input type='submit' value="Add Product" className="bg-black hover:shadow-inner text-white hover:bg-base-200 font-semibold hover:text-black border-none btn btn-sm lg:btn-md lg:btn-wide" />
+              <input type='submit' value="Update Product" className="bg-black hover:shadow-inner text-white hover:bg-base-200 font-semibold hover:text-black border-none btn btn-sm lg:btn-md lg:btn-wide" />
             </div>
           </form>
         </div>
