@@ -4,10 +4,11 @@ import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const links = <>
-    <li> <NavLink to={"/"}> Home </NavLink> </li>
+    <li> <NavLink to={"/Home"}> Home </NavLink> </li>
     <li> <NavLink to={"/About"}> About</NavLink> </li>
     <li> <NavLink to={"/blog"}> Blog</NavLink> </li>
-    <li> <NavLink to={"/products"}> Add Product </NavLink> </li>
+    <li> <NavLink to={"/AddProduct"}> Add Product </NavLink> </li>
+    <li> <NavLink to={"/cart"}> My Cart </NavLink> </li>
   </>
   const user = true
   return (
@@ -32,7 +33,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          {user && user.email ? (
+        {/* && user.email ? */}
+          {user ? (
             <div className="flex-none">
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn mr-3 btn-ghost btn-circle">

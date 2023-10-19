@@ -1,7 +1,7 @@
 const Banner = () => {
   return (
     <>
-      <div className="w-full h-full bg-[url('https://i.postimg.cc/q7Rjf3hv/542553.png')] bg-cover grid md:grid-cols-2  justify-center">
+      <div className="w-full h-screen bg-[url('https://i.postimg.cc/ncgPbRVX/5425537.png')] bg-cover grid md:grid-cols-2  justify-center">
         <div className="hidden md:block"></div>
         <div className="flex h-full w-full pr-60 lg:p-0 items-center text-[#6f6f6f] ">
           <div
@@ -12,7 +12,6 @@ const Banner = () => {
             <h1 className="text-7xl md:text-[200px] font-bold">70%</h1>
             <h3 className="text-xl md:text-3xl text-end">OFF</h3>
             <button className="bg-black hover:shadow-inner text-white hover:bg-base-200 font-semibold hover:text-black border-none btn btn-sm lg:btn-md lg:btn-wide">Buy Now</button>
-            {/* <p>TRENDY OUTFITS Get Glamorous Elevate Your Style: Unveiling the Latest Trends</p> */}
           </div>
         </div>
       </div>

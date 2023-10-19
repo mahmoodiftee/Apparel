@@ -11,3 +11,36 @@ body{
   background-size: cover;
   background-position: center;
 }
+.cards {
+  display: flex;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  flex-direction: column;
+  padding: var(--padding-card, 1rem);
+  gap: 4px;
+}
+.cards :where(p) {
+  flex-grow: 1;
+}
+.card.image-full > .cards {
+  position: relative;
+  z-index: 20;
+  --tw-text-opacity: 1;
+  color: hsl(var(--nc) / var(--tw-text-opacity));
+}
+.card.compact .cards {
+  padding:8px;
+  font-size: 0.875rem/* 14px */;
+  line-height: 10px;
+}
+.card-compact .cards {
+  padding: 8px;
+  font-size: 0.875rem/* 14px */;
+  line-height: 10px;
+}
+.card-normal .cards {
+  padding: var(--padding-card, 1rem);
+  font-size: 8px;
+  line-height: 12px;
+}

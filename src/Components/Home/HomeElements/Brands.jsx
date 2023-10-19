@@ -1,30 +1,39 @@
-import { SiNike } from 'react-icons/si';
-import { CgAdidas } from 'react-icons/cg';
-import { SiZara } from 'react-icons/si';
-import { CgChanel } from 'react-icons/cg';
+import { useEffect, useState } from 'react';
+import json from '../../../../public/brands.json';
+import { Link } from 'react-router-dom';
+
 const Brands = () => {
+  const [brands, setBrands] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setBrands(json);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <div className='bg-black'>
-      <h1 className='text-3xl lg:text-6xl text-gray-200 pt-10 font-bold text-center font-[Sarina]'>Popular Brands</h1>
-    <hr className='border w-[350px] lg:w-[600px] mx-auto border-red-500' />
-    
-    <div className="grid grid-cols-4 md:grid-cols-4">
-        <div className='flex gap-4 flex-col hover:text-red-600 justify-center text-white min-h-[200px] lg:min-h-[300px] items-center'><SiNike className='text-5xl hover:text-6xl lg:text-8xl lg:hover:text-9xl border-b-2 hover:border-white border-red-500'>
-        </SiNike>
-          <p className='' >Nike</p>
-        </div>
-        <div className='flex gap-4 flex-col hover:text-red-600 justify-center text-white min-h-[200px] lg:min-h-[300px] items-center'><CgChanel className='text-5xl hover:text-6xl  pb-[12px] lg:text-8xl lg:hover:text-9xl border-b-2 hover:border-white border-red-500'>
-        </CgChanel>
-          <p className='' >Chanel</p>
-        </div>
-        <div className='flex gap-4 flex-col hover:text-red-600 justify-center text-white min-h-[200px] lg:min-h-[300px] items-center'><SiZara className='text-5xl hover:text-6xl lg:text-8xl lg:hover:text-9xl border-b-2 hover:border-white border-red-500'>
-        </SiZara>
-          <p className='' >Zara</p>
-        </div>
-        <div className='flex gap-4 flex-col hover:text-red-600  justify-center text-white min-h-[200px] lg:min-h-[300px] items-center'><CgAdidas className='text-5xl pb-[6px] hover:text-6xl lg:text-8xl lg:hover:text-9xl border-b-2 hover:border-white border-red-500'>
-        </CgAdidas>
-          <p className='' >Adidas</p>
-        </div>
+    <div className='pb-10 px-4 sm:px-10 relative'>
+      <h1 className='text-3xl sm:text-4xl lg:text-6xl text-[#e5e5e5] pt-10 font-bold text-center font-[Sarina]'>FashionBrands</h1>
+      <h1 className='text-2xl lg:text-4xl absolute top-[45px] lg:top-[60px] left-[50%] transform -translate-x-1/2 text-black font-sans font-bold text-center'>Popular Brands</h1>
+      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 my-8'>
+        {brands.map(brand => (
+          <Link to={`/brandProducts/${brand.name}`} key={brand.id}>
+            <div className="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+              <div className="relative overflow-hidden text-gray-700 bg-white shadow-lg rounded-xl bg-clip-border">
+                <img className='w-full h-48 object-cover' src={brand.img} alt={brand.name} />
+              </div>
+              <h4 className="block my-2 text-center font-sans text-xl sm:text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                {brand.name}
+              </h4>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );
