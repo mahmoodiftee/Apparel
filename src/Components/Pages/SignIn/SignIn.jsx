@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import SocialLogin from "./SocialLogin/SocialLogin";
 import Swal from "sweetalert2";
+import Navbar from "../../Home/Navbar/Navbar";
 
 
 const SignIn = () => {
@@ -35,6 +36,7 @@ const SignIn = () => {
 
   return (
     <div>
+      <Navbar></Navbar>
       <div className="h-screen flex justify-center items-center">
         <form onSubmit={handleSignIn} className="inset-0 backdrop-filter backdrop-blur-md bg-opacity-40">
           <div className='flex justify-center items-center'>

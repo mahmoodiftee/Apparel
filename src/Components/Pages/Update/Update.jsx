@@ -1,5 +1,6 @@
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import Navbar from '../../Home/Navbar/Navbar';
 
 const Update = () => {
   const product = useLoaderData();
@@ -18,7 +19,7 @@ const Update = () => {
     console.log(newProduct);
 
     // send data to server
-  fetch(`http://localhost:5000/product/${_id}`, {
+  fetch(`https://apparel-server.vercel.app/product/${_id}`, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json'
@@ -43,6 +44,7 @@ const Update = () => {
 }
   return (
     <div>
+      <Navbar></Navbar>
       <div className='flex pt-4 pb-10 lg:pb-10 justify-center items-center px-6'>
         <div className="card flex-shrink-0 w-full  max-w-[1000px] shadow-2xl bg-base-100">
           <header className=" text-black mt-8 mb-4 text-center normal-case font-bold text-xl lg:text-3xl">Add New Product</header>

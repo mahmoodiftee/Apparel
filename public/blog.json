@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "The Timeless Elegance of the Little Black Dress",
+    "author": "Sophia Taylor",
+    "authorImage": "https://i.ibb.co/tKk3Mwj/1.jpg",
+    "bg": "https://i.ibb.co/tKk3Mwj/1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "2023 Fashion Trends: What to Expect",
+    "author": "Oliver Reed",
+    "authorImage": "https://i.ibb.co/XCRVvKV/2.jpg",
+    "bg": "https://i.ibb.co/XCRVvKV/2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Choosing the Perfect Accessories for Your Outfit",
+    "author": "Ava Martinez",
+    "authorImage": "https://i.ibb.co/r6zW7hJ/3.jpg",
+    "bg": "https://i.ibb.co/r6zW7hJ/3.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Sustainable Fashion: A Greener Approach to Style",
+    "author": "Ethan Parker",
+    "authorImage": "https://i.ibb.co/f47tYHq/4.jpg",
+    "bg": "https://i.ibb.co/f47tYHq/4.jpg"
+  },
+  {
+    "id": 5,
+    "title": "The Art of Mixing and Matching Patterns",
+    "author": "Lily Anderson",
+    "authorImage": "https://i.ibb.co/v3GY2Xz/5.jpg",
+    "bg": "https://i.ibb.co/v3GY2Xz/5.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Fashion Icons: Celebrating the Legends of Style",
+    "author": "Mia Johnson",
+    "authorImage": "https://i.ibb.co/gzQdVGk/6.jpg",
+    "bg": "https://i.ibb.co/gzQdVGk/6.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Fall/Winter 2023 Collection Preview",
+    "author": "Daniel Wright",
+    "authorImage": "https://i.ibb.co/r7nnmXK/7.jpg",
+    "bg": "https://i.ibb.co/r7nnmXK/7.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Discovering Your Personal Style: A Guide for Beginners",
+    "author": "Olivia Brown",
+    "authorImage": "https://i.ibb.co/VmfTwZm/8.jpg",
+    "bg": "https://i.ibb.co/VmfTwZm/8.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Runway to Reality: How to Translate High Fashion into Everyday Outfits",
+    "author": "Noah Adams",
+    "authorImage": "https://i.ibb.co/NVmf5sb/9.jpg",
+    "bg": "https://i.ibb.co/NVmf5sb/9.jpg"
+  },
+  {
+    "id": 10,
+    "title": "The Influence of Street Style on Modern Fashion",
+    "author": "Isabella White",
+    "authorImage": "https://i.ibb.co/KzJNsvJ/10.jpg",
+    "bg": "https://i.ibb.co/KzJNsvJ/10.jpg"
+  }
+]

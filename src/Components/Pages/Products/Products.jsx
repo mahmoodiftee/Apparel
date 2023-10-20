@@ -3,7 +3,6 @@ import SingleProduct from "./SingleProduct";
 
 const Products = () => {
   const products = useLoaderData();
-  console.log(products);
   return (
     <div>
       <div className="relative ">

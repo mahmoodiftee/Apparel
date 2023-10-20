@@ -1,6 +1,8 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { BiSolidCart } from 'react-icons/bi';
-
+import {
+  Typography,
+} from "@material-tailwind/react";
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -12,14 +14,20 @@ const Navbar = () => {
   const email = user?.email;
   const [userProducts, setUserProducts] = useState([]);
 
-  if (email) {
-    // Fetch products associated with the user's email
-    fetch(`http://localhost:5000/user?email=${email}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setUserProducts(data);
-      });
-  }
+  useEffect(() => {
+    if (email) {
+      // Fetch products associated with the user's email
+      fetch(`https://apparel-server.vercel.app/user?email=${email}`)
+        .then((response) => response.json())
+        .then((data) => {
+          const filteredData = data.filter((item) => item.email === email);
+          setUserProducts(filteredData);
+        })
+        .catch((error) => {
+          console.error('Error fetching user products:', error);
+        });
+    }
+  }, [email]);
 
 
   const handleSignOut = () => {
@@ -52,7 +60,7 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link to={"/Home"}>
+          <Link to={"/"}>
             <img className="w-[60px] h-[60px]" src="https://i.postimg.cc/c45npSXS/1file.png" alt="" />
           </Link>
         </div>
@@ -69,14 +77,31 @@ const Navbar = () => {
                 <label tabIndex={0} className="btn mr-3 btn-ghost btn-circle">
                   <div className="indicator">
                     <BiSolidCart className='text-white text-4xl'></BiSolidCart>
-                    <span className="badge badge-sm indicator-item">{userProducts.length}</span>
+                    <span className="badge badge-sm bg-red-600 border-none text-white indicator-item">{userProducts.length}</span>
                   </div>
                 </label>
-                <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-36 bg-base-100 shadow">
+                <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-60 md:w-96 bg-base-100 shadow">
                   <div className="card-body">
-                    <span className="font-bold text-center text-lg">{userProducts.length} Items</span>
+                    <span className="font-bold text-center text-lg">
+                      {
+                        userProducts.map((product) => (
+                          <div key={product.product._id} >
+                            <div className="mb-2 flex gap-2 items-center justify-between">
+                              <Typography className="text-sm font-normal  lg:font-medium text-left ">
+                                {product.product.name}
+                              </Typography>
+
+                              <Typography color="blue-gray" className="text-sm font-normal  lg:font-medium text-right ">
+                                ${product.product.price}
+                              </Typography>
+                            </div>
+                            <div className='border-2 my-2 border-base-200 w-full'></div>
+                          </div>
+                        ))
+                      }
+                    </span>
                     <div className="">
-                      <Link to={'/mycart' }>
+                      <Link to={'/mycart'}>
                         <button className="btn w-full btn-sm btn-block">My Cart</button>
                       </Link>
                     </div>

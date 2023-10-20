@@ -4,6 +4,7 @@ import gif from '../../../assets/n.gif'
 import 'react-slideshow-image/dist/styles.css'
 import { Slide } from 'react-slideshow-image'
 import shadow from '../../../assets/shadow.png'
+import Navbar from "../../Home/Navbar/Navbar";
 const BrandProducts = () => {
 
 
@@ -15,6 +16,7 @@ const BrandProducts = () => {
     filteredProducts?.length > 0 ? (
 
       <div className="relative">
+        <Navbar></Navbar>
         <div className="px-2 lg:px-10">
           <Slide images={filteredProducts.map((product) => product.photo)}>
             {filteredProducts.map((product, index) => (

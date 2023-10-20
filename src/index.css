@@ -64,3 +64,28 @@ body{
   padding-bottom: 1rem/* 16px */;
 }
 
+
+/*======================
+    404 page
+=======================*/
+
+
+
+.page_404  img{ width:100%;}
+
+.four_zero_four_bg{
+ 
+ background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 500px;
+    background-position: center;
+    width: 100%;
+    background-repeat: no-repeat;
+ }
+ 
+ 
+ .four_zero_four_bg h1{
+ font-size:80px;
+ font-family: sans-serif;
+ font-weight: 800;
+ }
+ 

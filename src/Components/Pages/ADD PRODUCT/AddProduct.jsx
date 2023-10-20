@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import Navbar from '../../Home/Navbar/Navbar';
 
 const AddProduct = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const AddProduct = () => {
     console.log(newProduct);
 
     //send data to server 
-    fetch('http://localhost:5000/product', {
+    fetch('https://apparel-server.vercel.app/product', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -25,7 +26,6 @@ const AddProduct = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             position: 'top-center',
@@ -35,7 +35,7 @@ const AddProduct = () => {
             timer: 1500
           })
           e.target.reset();
-          navigate('/Home');
+          navigate('/');
         }
       })
 
@@ -43,6 +43,7 @@ const AddProduct = () => {
 
   return (
     <div>
+      <Navbar></Navbar>
       <div className='flex pt-4 pb-10 lg:pb-10 justify-center items-center px-6'>
         <div className="card flex-shrink-0 w-full  max-w-[1000px] shadow-2xl bg-base-100">
           <header className=" text-black mt-8 mb-4 text-center normal-case font-bold text-xl lg:text-3xl">Add New Product</header>
