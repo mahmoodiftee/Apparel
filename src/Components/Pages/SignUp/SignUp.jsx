@@ -26,24 +26,41 @@ const SignUp = () => {
     }
 
     try {
-      await createUser(email, password);
+      const result = await createUser(email, password);
       await updateProfile(auth.currentUser, {
         displayName: name,
-        photoURL: photoURL
+        photoURL: photoURL,
       });
+
+      const createdAt = result.user?.metadata?.createdAt;
+      const user = { email, createdAt };
+
       Swal.fire({
         icon: 'success',
         text: 'user created successfully',
-      })
-      console.log('user created successfully')
+      });
+      console.log('user created successfully');
       navigate("/Home");
+
+      fetch('http://localhost:5000/user', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
     } catch (error) {
       Swal.fire({
         icon: 'error',
         text: `${error.message}`,
-      })
+      });
       console.log(error.message);
     }
+
 
   }
 

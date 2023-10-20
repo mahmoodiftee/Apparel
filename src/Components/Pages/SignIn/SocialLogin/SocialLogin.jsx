@@ -13,7 +13,7 @@ const SocialLogin = () => {
     GoogleSignIn()
       .then(() => {
         toast.success('user logged in successfully');
-        navigate(location?.state ? location.state : '/');
+        navigate(location?.state ? location.state : '/Home');
       })
       .catch((error) => {
         toast.error(error.message);

@@ -17,6 +17,7 @@ import SignIn from './Components/Pages/SignIn/SignIn';
 import SignUp from './Components/Pages/SignUp/SignUp';
 import AuthProvider from './Components/AuthProvider/AuthProvider';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import MyCart from './Components/Pages/MyCart/MyCart';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -61,9 +62,11 @@ const router = createBrowserRouter([
         path: "/edit/:id",
         element: <Update></Update>,
         loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
-      }
-
-
+      },
+      {
+        path: "/mycart",
+        element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
+      },    
     ]
   },
 ]);

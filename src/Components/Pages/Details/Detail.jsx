@@ -1,10 +1,17 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { BsCart4 } from 'react-icons/bs';
 import Swal from 'sweetalert2';
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Detail = () => {
   const product = useLoaderData();
-  const {_id} = product;
-const navigate = useNavigate();
+  const { _id } = product;
+  const {user} = useContext(AuthContext);
+  const email = user?.email;
+  console.log(email);
+  const data = {email, product}
+  const navigate = useNavigate();
+  //delete
   const handleDelete = _id => {
     Swal.fire({
       title: 'Are you sure?',
@@ -34,6 +41,20 @@ const navigate = useNavigate();
     })
   }
 
+  //create user in mongodb with product data
+  const handleAddProduct = _id => {
+    fetch('http://localhost:5000/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }
 
   return (
     <div className="hero min-h-screen bg-white">
@@ -49,7 +70,9 @@ const navigate = useNavigate();
           <p className="text-sm mb-4 max-w-[650px] text-gray-600 font-thin"><span className="text-sm  text-gray-700 font-bold">Details: </span> {product.description}</p>
 
           <div className="flex flex-col md:flex-row justify-start gap-4">
-            <button className="bg-black rounded-none flex justify-center items-center gap-2 hover:shadow-inner text-white hover:bg-base-200 font-semibold hover:text-black border-none btn btn-sm lg:btn-md lg:btn-wide">
+            <button
+            onClick={() => handleAddProduct(_id)}
+            className="bg-black rounded-none flex justify-center items-center gap-2 hover:shadow-inner text-white hover:bg-base-200 font-semibold hover:text-black border-none btn btn-sm lg:btn-md lg:btn-wide">
               <BsCart4 className="h-6 w-6"></BsCart4>
               ADD TO CART</button>
             <button

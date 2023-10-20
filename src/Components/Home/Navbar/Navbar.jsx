@@ -1,18 +1,27 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { BiSolidCart } from 'react-icons/bi';
-import { BsFillPersonFill } from 'react-icons/bs';
+
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Navbar = () => {
+
   const navigate = useNavigate();
   const { user, SignOut, } = useContext(AuthContext)
-  if (user) {
-    console.log(user.name);
-    console.log(user.email);
-    console.log(user.photoURL);
+  const email = user?.email;
+  const [userProducts, setUserProducts] = useState([]);
+
+  if (email) {
+    // Fetch products associated with the user's email
+    fetch(`http://localhost:5000/user?email=${email}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setUserProducts(data);
+      });
   }
+
+
   const handleSignOut = () => {
     SignOut()
     Swal.fire({
@@ -29,7 +38,7 @@ const Navbar = () => {
     <li> <NavLink to={"/About"}> About</NavLink> </li>
     <li> <NavLink to={"/blog"}> Blog</NavLink> </li>
     <li> <NavLink to={"/AddProduct"}> Add Product </NavLink> </li>
-    <li> <NavLink to={"/cart"}> My Cart </NavLink> </li>
+    <li> <NavLink to={"/mycart"}> My Cart </NavLink> </li>
   </>
   return (
     <div>
@@ -60,15 +69,16 @@ const Navbar = () => {
                 <label tabIndex={0} className="btn mr-3 btn-ghost btn-circle">
                   <div className="indicator">
                     <BiSolidCart className='text-white text-4xl'></BiSolidCart>
-                    <span className="badge badge-sm indicator-item">8</span>
+                    <span className="badge badge-sm indicator-item">{userProducts.length}</span>
                   </div>
                 </label>
-                <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-36 bg-base-100 shadow">
                   <div className="card-body">
-                    <span className="font-bold text-lg">8 Items</span>
-                    <span className="text-info">Subtotal: $999</span>
-                    <div className="card-actions">
-                      <button className="btn btn-primary btn-block">My Cart</button>
+                    <span className="font-bold text-center text-lg">{userProducts.length} Items</span>
+                    <div className="">
+                      <Link to={'/mycart' }>
+                        <button className="btn w-full btn-sm btn-block">My Cart</button>
+                      </Link>
                     </div>
                   </div>
                 </div>
