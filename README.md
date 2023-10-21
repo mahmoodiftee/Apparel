@@ -1,5 +1,5 @@
 # APPAREL
-- Live Wbsite Link:
+- Live Wbsite Link: https://apparel-f4dc9.web.app
 
 # Project Features
 
@@ -10,6 +10,6 @@ Home page will have a Navbar, Banner, Brand Section, Products Section and Footer
 # 3
 Private Routing is implemented in different routes that need user logged in to get access, Firebase authentication implementation has been done for that.
 # 4
-All the product of individual brand will be featched from mongodb and added product will be stored in mongodb. 
+All the product of individual brand will be fetched from mongodb and added product will be stored in mongodb. 
 # 5
-MyCart page will show all the product that user added by clickin ADD TO CART button
+MyCart page will show all the product that user added by clicking ADD TO CART button

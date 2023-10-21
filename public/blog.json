@@ -2,71 +2,100 @@
   {
     "id": 1,
     "title": "The Timeless Elegance of the Little Black Dress",
-    "author": "Sophia Taylor",
-    "authorImage": "https://i.ibb.co/tKk3Mwj/1.jpg",
-    "bg": "https://i.ibb.co/tKk3Mwj/1.jpg"
+    "author": "John Smith",
+    "authorImage": "https://i.ibb.co/RTDVcbY/1.jpg",
+    "bg": "https://i.ibb.co/mbK0mD1/1.jpg",
+    "test": "Impressed with the website's service quality, product quality, and exceptional customer service. Professionalism shines through.",
+    "nickname": "@johnsmith",
+    "date": "2023-04-15",
+    "rating": 5
   },
   {
     "id": 2,
     "title": "2023 Fashion Trends: What to Expect",
-    "author": "Oliver Reed",
-    "authorImage": "https://i.ibb.co/XCRVvKV/2.jpg",
-    "bg": "https://i.ibb.co/XCRVvKV/2.jpg"
+    "author": "Michael Brown",
+    "authorImage": "https://i.ibb.co/0tnpJyg/2.jpg",
+    "bg": "https://i.ibb.co/sFY213P/2.jpg",
+    "test": "Mia's tribute to fashion icons mirrors the website's commitment to professionalism and top-quality service.",
+    "nickname": "@michaelbrown",
+    "date": "2023-07-22",
+    "rating": 5
   },
   {
     "id": 3,
     "title": "Choosing the Perfect Accessories for Your Outfit",
-    "author": "Ava Martinez",
-    "authorImage": "https://i.ibb.co/r6zW7hJ/3.jpg",
-    "bg": "https://i.ibb.co/r6zW7hJ/3.jpg"
+    "author": "David Wilson",
+    "authorImage": "https://i.ibb.co/svW98kg/3.jpg",
+    "bg": "https://i.ibb.co/PM8wgmh/3.jpg",
+    "test": "Thanks to this website's guidance, I've upped my accessory game. Exceptional service and professionalism.",
+    "nickname": "@davidwilson",
+    "date": "2023-09-08",
+    "rating": 4
   },
   {
     "id": 4,
     "title": "Sustainable Fashion: A Greener Approach to Style",
-    "author": "Ethan Parker",
-    "authorImage": "https://i.ibb.co/f47tYHq/4.jpg",
-    "bg": "https://i.ibb.co/f47tYHq/4.jpg"
+    "author": "James Johnson",
+    "authorImage": "https://i.ibb.co/L1KTHK0/4.jpg",
+    "bg": "https://i.ibb.co/KD9sVXx/4.jpg",
+    "test": "Ethan's sustainable insights align with the website's commitment to quality and professionalism.",
+    "nickname": "@jamesjohnson",
+    "date": "2023-05-30",
+    "rating": 5
   },
   {
     "id": 5,
     "title": "The Art of Mixing and Matching Patterns",
-    "author": "Lily Anderson",
-    "authorImage": "https://i.ibb.co/v3GY2Xz/5.jpg",
-    "bg": "https://i.ibb.co/v3GY2Xz/5.jpg"
+    "author": "William Davis",
+    "authorImage": "https://i.ibb.co/NrKSw0t/5.jpg",
+    "bg": "https://i.ibb.co/MR7Gxr8/5.jpg",
+    "test": "The website's pattern mixing advice elevates my style. Great service, top-quality products, and professionalism.",
+    "nickname": "@williamdavis",
+    "date": "2023-08-17",
+    "rating": 4
   },
   {
     "id": 6,
     "title": "Fashion Icons: Celebrating the Legends of Style",
     "author": "Mia Johnson",
-    "authorImage": "https://i.ibb.co/gzQdVGk/6.jpg",
-    "bg": "https://i.ibb.co/gzQdVGk/6.jpg"
+    "authorImage": "https://i.ibb.co/w4rbPVQ/6.jpg",
+    "bg": "https://i.ibb.co/MRHdLBX/6.jpg",
+    "test": "Mia's tribute to fashion icons mirrors the website's commitment to professionalism and top-quality service.",
+    "nickname": "@mia",
+    "date": "2023-06-12",
+    "rating": 5
   },
   {
     "id": 7,
     "title": "Fall/Winter 2023 Collection Preview",
     "author": "Daniel Wright",
-    "authorImage": "https://i.ibb.co/r7nnmXK/7.jpg",
-    "bg": "https://i.ibb.co/r7nnmXK/7.jpg"
+    "authorImage": "https://i.ibb.co/0tnpJyg/2.jpg",
+    "bg": "https://i.ibb.co/0tnpJyg/2.jpg",
+    "test": "Impressed with the website's fall/winter collection preview. Exceptional service and professionalism throughout.",
+    "nickname": "@daniel",
+    "date": "2023-11-01",
+    "rating": 4
   },
   {
     "id": 8,
     "title": "Discovering Your Personal Style: A Guide for Beginners",
     "author": "Olivia Brown",
-    "authorImage": "https://i.ibb.co/VmfTwZm/8.jpg",
-    "bg": "https://i.ibb.co/VmfTwZm/8.jpg"
+    "authorImage": "https://i.ibb.co/f8w03P3/8.jpg",
+    "bg": "https://i.ibb.co/QkZqLVy/8.jpg",
+    "test": "Olivia's guide for beginners reflects the website's dedication to top-quality service and professionalism.",
+    "nickname": "@olivia",
+    "date": "2023-04-29",
+    "rating": 5
   },
   {
     "id": 9,
     "title": "Runway to Reality: How to Translate High Fashion into Everyday Outfits",
     "author": "Noah Adams",
-    "authorImage": "https://i.ibb.co/NVmf5sb/9.jpg",
-    "bg": "https://i.ibb.co/NVmf5sb/9.jpg"
-  },
-  {
-    "id": 10,
-    "title": "The Influence of Street Style on Modern Fashion",
-    "author": "Isabella White",
-    "authorImage": "https://i.ibb.co/KzJNsvJ/10.jpg",
-    "bg": "https://i.ibb.co/KzJNsvJ/10.jpg"
+    "authorImage": "https://i.ibb.co/1rYBnpz/9.jpg",
+    "bg": "https://i.ibb.co/LzdQg3b/9.jpg",
+    "test": "Noah's high fashion translation tips are in sync with the website's professionalism and service quality.",
+    "nickname": "@noah",
+    "date": "2023-07-14",
+    "rating": 4
   }
 ]

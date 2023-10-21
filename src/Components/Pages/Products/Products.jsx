@@ -1,19 +1,35 @@
 import { useLoaderData } from "react-router-dom";
 import SingleProduct from "./SingleProduct";
+import React, { useState } from 'react';
 
 const Products = () => {
   const products = useLoaderData();
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleProducts = showAll ? products : products.slice(0, 12);
+
+  const toggleShowAll = () => {
+    setShowAll(!showAll);
+  };
+
   return (
     <div>
-      <div className="relative ">
-        <h1 className='text-3xl sm:text-4xl lg:text-[80px] text-[#e5e5e5] pt-10 font-bold text-center font-[Sarina]'>Products</h1>
-        <h1 className='text-2xl lg:text-4xl absolute top-[45px] lg:top-[52px] left-[50%] transform -translate-x-1/2 text-black font-sans font-bold text-center'>BEST PRODUCTS</h1>
-        <div className="grid py-24 grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 px-4">
+      <div className="relative pb-32">
+        <div className="card-body items-center text-center">
+          <h2 className="card-title text-2xl sm:text-3xl lg:text-3xl font-bold">Products</h2>
+          <div className='border-2 my-2 border-base-200 w-[250px]'></div>
+        </div>
+        <div className="grid pt-8 pb-12 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 px-2 lg:px-10">
           {
-            products.map((product) => (
+            visibleProducts.map((product) => (
               <SingleProduct key={product._id} product={product} />
             ))
           }
+        </div>
+        <div className="flex justify-center">
+          {products.length > 10 && (
+            <button onClick={toggleShowAll} className="btn w-1/8 h-10 btn-sm rounded-none hover:shadow-inner bg-black text-white hover:bg-base-200 hover:text-black btn-ghost">{showAll ? 'Show Less' : 'Show All'}</button>
+          )}
         </div>
       </div>
     </div>

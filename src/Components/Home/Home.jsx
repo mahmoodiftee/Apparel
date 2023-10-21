@@ -1,4 +1,5 @@
 import Products from "../Pages/Products/Products";
+import Testimonial from "../Pages/Testimonial/Testimonial";
 import Footer from "./Footer/Footer";
 import Banner from "./HomeElements/Banner";
 import Brands from "./HomeElements/Brands";
@@ -11,6 +12,7 @@ const Home = () => {
       <Banner></Banner>
       <Brands></Brands>
       <Products></Products>
+      <Testimonial></Testimonial>
       <Footer></Footer>
     </div>
   );

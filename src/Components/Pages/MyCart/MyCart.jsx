@@ -76,14 +76,14 @@ const MyCart = () => {
         {userProducts.map((product) => (
           <div key={product.product._id} className="flex-1">
             <Card className="">
-              <CardHeader shadow={false} floated={false} className="h-96 flex justify-center item-center">
+              <CardHeader shadow={false} floated={false} className="h-80 flex justify-center item-center">
                 <img
                   src={product.product.photo}
                   alt="card-image"
-                  className="h-4/6"
+                  className="h-full w-full object-contain"
                 />
               </CardHeader>
-              <CardBody className="lg:-24 px-2 lg:px-8">
+              <CardBody className="lg:-24 px-2 lg:h-[145px] lg:px-8">
                 <div className="mb-2 flex items-center justify-between">
                   <Typography className="font-medium">
                     {product.product.name}
